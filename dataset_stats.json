@@ -1,0 +1,22 @@
+{
+  "train": {
+    "tokens": 27364,
+    "examples": 27352,
+    "unknown_fraction": 0.03789650648832321
+  },
+  "validation": {
+    "tokens": 3420,
+    "examples": 3408,
+    "unknown_fraction": 0.09035087376832962
+  },
+  "test": {
+    "tokens": 3421,
+    "examples": 3409,
+    "unknown_fraction": 0.09997076541185379
+  },
+  "total_tokens": 34205,
+  "vocabulary_size": 1323,
+  "source": "https://www.gutenberg.org/files/11/11-0.txt",
+  "sha256": "a3a27f8edbf7fcd9b8ba8435494440e24952deaa3e2f2d65192d4cb7ca403754",
+  "split_policy": "contiguous 80:10:10, split before windowing"
+}

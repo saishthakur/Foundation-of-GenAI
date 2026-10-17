@@ -1,0 +1,26 @@
+{
+  "config": {
+    "seed": 42,
+    "context": 12,
+    "embedding": 64,
+    "hidden": 128,
+    "epochs": 15,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "min_frequency": 2,
+    "threads": 4
+  },
+  "python": "3.12.14",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "pandas": "3.0.6",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "device": "CPU",
+  "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+  "seeds": [
+    "alice was beginning to get very tired of sitting by her sister",
+    "the queen turned angrily away from him and said to the knave",
+    "the mad hatter looked at alice and began to speak very slowly"
+  ],
+  "note": "Training time includes validation and best-state copies; excludes dataset preparation and generation."
+}
