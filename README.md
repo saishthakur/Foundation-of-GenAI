@@ -240,6 +240,31 @@ At **1.5**, unique-token ratios reach 0.863–0.894 and repeated-bigram ratios a
 
 For readable short fragments, **0.5 is the most useful of the three tested temperatures**, accepting more repetition. None reliably sustains a coherent 60-token narrative. This is an informal qualitative reading of the supplied samples, not a blinded human-rating study; it does not establish a robust semantic-quality ranking between LSTM and GRU.
 
+### Manual qualitative rating
+
+To complement the automatic diversity metrics, one rater (the author) scored the continuations on a 1-5 scale (5 = best) after reading the sampling-repeat-0 continuations (3 prompts per model and temperature) in `generated_text_samples.csv`.
+
+* **Grammar / local fluency:** are short spans grammatical English?
+* **Coherence:** does the passage form a sensible sequence of events?
+* **Contextual consistency:** does it stay with the prompt's characters and setting?
+
+| Model | Temp | Grammar | Coherence | Consistency | Notes |
+|---|---:|---:|---:|---:|---|
+| RNN | 0.5 | 3 | 2 | 2 | Dialogue-shaped, but "you know, you know" loops |
+| RNN | 1.0 | 2 | 1 | 2 | Ungrammatical ("a english tone") |
+| RNN | 1.5 | 1 | 1 | 1 | Near word salad |
+| BiRNN | 0.5 | 2 | 2 | 2 | Local errors ("what was is") |
+| BiRNN | 1.0 | 1 | 1 | 1 | Fragmented |
+| BiRNN | 1.5 | 1 | 1 | 1 | Near word salad |
+| LSTM | 0.5 | 3 | 2 | 3 | Best readable fragments; Hatter/Mock Turtle/Duchess stay in character |
+| LSTM | 1.0 | 2 | 1 | 2 | Grammar degrades |
+| LSTM | 1.5 | 1 | 1 | 1 | Near word salad |
+| GRU | 0.5 | 3 | 2 | 3 | Similar to LSTM; repeats "a little" |
+| GRU | 1.0 | 2 | 1 | 2 | Grammar degrades |
+| GRU | 1.5 | 1 | 1 | 1 | Near word salad |
+
+This is a single-rater, non-blinded rating of a subset of samples. It supports, but does not statistically establish, the finding that LSTM and GRU at temperature 0.5 give the most readable text, and that no model reaches a coherence score above 2.
+
 ## 9. Model Comparison and Conclusion
 
 **LSTM is the best-performing model on the recorded test comparison**, with the lowest test loss (3.9380), lowest perplexity (51.32) and highest accuracy (26.14%). At temperature 0.5 it also produces recognizable short narrative and dialogue fragments, although its sustained coherence remains poor. It is the preferred model for this assignment's measured predictive comparison, rather than a proven universal winner in text quality.
